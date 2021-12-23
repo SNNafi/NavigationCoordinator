@@ -1,0 +1,30 @@
+//
+//  NavigationCoordinatorViewModifier.swift
+//  
+//
+//  Created by Shahriar Nasim Nafi on 23/12/21.
+//  Copyright © 2021 Shahriar Nasim Nafi. All rights reserved.
+//
+
+import SwiftUI
+
+struct NavigationCoordinatorViewModifier: ViewModifier {
+    var id: NavigationControllerId
+    @Environment(\.navigationCoordinator) var navigationCoordinator
+    public func body(content: Content) -> some View {
+        content
+            .introspectNavigationController { navgationController in
+                NavigationCoordinator.navigationControllers[id] = navgationController
+                NavigationCoordinator.navigationControllers[id]?.delegate = navigationCoordinator
+                NavigationCoordinator.currentNavigationControllerId = id
+                navigationCoordinator.onDismissForViewController[id] = [:]
+            }
+    }
+}
+
+
+public extension View {
+    func navigationCoordinator(id: NavigationControllerId) -> some View {
+        modifier(NavigationCoordinatorViewModifier(id: id))
+    }
+}
