@@ -12,7 +12,8 @@ import UIKit
 import Introspect
 
 /// `NavigationCoordinator` acts as a controller for `NavigationView`. You can use `pushView`, `popView`, `popToView`, `popToRootView` as you can in traditional `UIKit`
-public class NavigationCoordinator: NSObject {
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+open class NavigationCoordinator: NSObject {
     
     static var navigationControllers = [String: UINavigationController]()
     /// Current underlaying `UINavigationController` You need to update this to  `primaryNavigationController` after dismissing a sheet
@@ -27,10 +28,6 @@ public class NavigationCoordinator: NSObject {
     public func popView(id: NavigationControllerId = currentNavigationControllerId, animated: Bool = true) {
         guard let navigationController = Self.navigationControllers[id] else { return }
         navigationController.popViewController(animated: animated)
-        
-#if DEBUG
-        print(id)
-#endif
     }
     
     /// Pop to any `View`
@@ -43,10 +40,6 @@ public class NavigationCoordinator: NSObject {
         if let viewController = navigationController.viewControllers.filter({ $0.accessibilityLabel == viewId}).first {
             navigationController.popToViewController(viewController, animated: animated)
         }
-        
-#if DEBUG
-        print(id)
-#endif
     }
     
     /// Push a `View`
@@ -63,10 +56,6 @@ public class NavigationCoordinator: NSObject {
         onDismissForViewController[id]?[withViewId] = navigationItem
         guard let navigationController = Self.navigationControllers[id] else { return }
         navigationController.pushViewController(viewController, animated: animated)
-        
-#if DEBUG
-        print(id)
-#endif
     }
     
     /// Pops all the view on the stack except the root view
@@ -76,10 +65,6 @@ public class NavigationCoordinator: NSObject {
     public func popToRootView(id: NavigationControllerId = currentNavigationControllerId, animated: Bool = true) {
         guard let navigationController = Self.navigationControllers[id] else { return }
         navigationController.popToRootViewController(animated: animated)
-        
-#if DEBUG
-        print(id)
-#endif
     }
     
 }

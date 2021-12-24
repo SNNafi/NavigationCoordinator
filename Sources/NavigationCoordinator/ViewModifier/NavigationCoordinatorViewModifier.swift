@@ -7,7 +7,9 @@
 //
 
 import SwiftUI
+import Introspect
 
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 struct NavigationCoordinatorViewModifier: ViewModifier {
     var id: NavigationControllerId
     @Environment(\.navigationCoordinator) var navigationCoordinator
@@ -22,7 +24,7 @@ struct NavigationCoordinatorViewModifier: ViewModifier {
     }
 }
 
-
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public extension View {
     func navigationCoordinator(id: NavigationControllerId) -> some View {
         modifier(NavigationCoordinatorViewModifier(id: id))

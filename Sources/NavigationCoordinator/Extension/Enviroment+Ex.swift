@@ -8,11 +8,12 @@
 
 import SwiftUI
 
-
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public struct NavigationCoordinatorKey: EnvironmentKey {
     public static var defaultValue: NavigationCoordinator = NavigationCoordinator()
 }
 
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public extension EnvironmentValues {
     var navigationCoordinator: NavigationCoordinator {
         get { self[NavigationCoordinatorKey.self] }

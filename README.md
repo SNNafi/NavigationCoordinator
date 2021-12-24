@@ -1,6 +1,9 @@
 # NavigationCoordinator
 
 <p align="center">
+
+<img src="https://img.shields.io/badge/iOS-13.0-orange" alt="iOS: 13.0">
+
 <img src="https://img.shields.io/badge/Swift-5.5-orange" alt="Swift: 5.5">
     <a href="./LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT">
@@ -9,7 +12,7 @@
 
 </p>
 
-NavigationCoordinator acts as a coordinator for `NavigationView`. You can use `pushView`, `popView`, `popToView`, `popToRootView` as you can in traditional `UIKit`
+NavigationCoordinator acts as a coordinator for `NavigationView`. You can use `pushView`, `popView`, `popToView`, `popToRootView` in `SwiftUI` as you can in traditional `UIKit`
 
 # Installing
 

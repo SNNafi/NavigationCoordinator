@@ -9,4 +9,5 @@
 import Foundation
 
 /// typealias SwiftUI `View` to  identify uniquely
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public typealias ViewId = String

@@ -8,8 +8,10 @@
 
 import Foundation
 
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public typealias NavigationControllerId = String
 
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public extension NavigationControllerId {
     static let primaryNavigationController = "PrimaryNavigationController"
 }
