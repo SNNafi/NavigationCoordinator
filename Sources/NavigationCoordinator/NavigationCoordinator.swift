@@ -15,10 +15,10 @@ import Introspect
 @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 open class NavigationCoordinator: NSObject {
     
-    static var navigationControllers = [String: UINavigationController]()
+    public static var navigationControllers = [String: UINavigationController]()
     /// Current underlaying `UINavigationController` You need to update this to  `primaryNavigationController` after dismissing a sheet
     public static var currentNavigationControllerId: NavigationControllerId!
-    var onDismissForViewController = [NavigationControllerId: [ViewId: NavigationItem]]()
+    public var onDismissForViewController = [NavigationControllerId: [ViewId: NavigationItem]]()
     
     
     /// Pop current `View`
